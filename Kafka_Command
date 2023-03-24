@@ -1,0 +1,17 @@
+#start zookeeper service
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+#Start Kafka service
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+#Create topic (bin\windows)
+kafka-topics.bat --create --topic natuan17 --bootstrap-server localhost:9092
+
+#Check list topic (bin\windows)
+kafka-topics.bat --list --bootstrap-server localhost:9092
+
+#Create producer message in topic (bin\windows)
+kafka-console-producer.bat --topic natuan17 --bootstrap-server localhost:9092
+
+#Consumer get message from producer in topic (bin\windows)
+kafka-console-consumer.bat --topic natuan17 --from-beginning --bootstrap-server localhost:9092
